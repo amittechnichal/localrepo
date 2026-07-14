@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
@@ -36,6 +35,12 @@ jobs:
         run: |
           gcloud auth list
           gcloud config list
+
+      - name: Show Current Directory
+        run: |
+          pwd
+          ls -la
+          find . -name "*.tf"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
